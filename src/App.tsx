@@ -9,7 +9,7 @@ import {
 import { Flex, Typography } from "antd";
 
 import Details from './details';
-import Error from "./common/Error"
+import Error, { ERROR_NOT_FOUND } from "./common/Error"
 import Gallery from './gallery';
 import List from "./list"
 
@@ -40,10 +40,10 @@ function App() {
         </div>
         <div className={style.body}>
           <Routes>
-            <Route path="/details" element={<Details />} />
+            <Route path="/details/:id" element={<Details />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/" element={<List />} />
-            <Route path="*" element={<Error msg="We can't find the page you're looking for" />} />
+            <Route path="*" element={<Error msg={ERROR_NOT_FOUND} />} />
           </Routes>
         </div>
       </Flex>

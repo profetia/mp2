@@ -37,6 +37,15 @@ function cache(maxAge = 600000) {
 
 class ApiUtils {
     @cache()
+    async fetchMovieList() {
+        return await endpoint.get("/genre/movie/list", {
+            params: {
+                language: 'en'
+            }
+        })
+    }
+
+    @cache()
     async fetchMovie({ page = 1, genre }: { page: number, genre?: number }) {
         return await endpoint.get(
             `/discover/movie`,
@@ -54,17 +63,18 @@ class ApiUtils {
     }
 
     @cache()
-    async fetchMovieList() {
-        return await endpoint.get("/genre/movie/list", {
+    async fetchDetails({ movie_id }: { movie_id: number }) {
+        return await endpoint.get(`/movie/${movie_id}`, {
             params: {
-                language: 'en'
+                language: "en-US",
             }
         })
     }
 }
 
 const api = new ApiUtils();
-export const fetchMovie = api.fetchMovie;
 export const fetchMovieList = api.fetchMovieList;
+export const fetchMovie = api.fetchMovie;
+export const fetchDetails = api.fetchDetails;
 
 export const POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500/";

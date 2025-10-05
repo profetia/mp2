@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
-import { Card, Flex, Typography } from "antd";
+import { Card, Flex, Image, Typography } from "antd";
 
-import Error from '../common/Error';
+import Error, { ERROR_FAIL_TO_FETCH } from '../common/Error';
 import Loading from '../common/Loading';
 
 import { fetchMovie, fetchMovieList, POSTER_BASE_URL } from '../common/ApiUtils';
@@ -12,18 +13,15 @@ import style from './index.module.scss';
 
 const { Text } = Typography;
 
-const FETCH_ERROR = "Fail to fetch from TMDB";
-
 async function batchedFetchMovie(page: number, genre?: number, batchSize: number = 2) {
     let results: any[] = [];
     let currentPage = page * batchSize - (batchSize - 1);
     for (let i = 0; i < batchSize; i++) {
-        console.log(currentPage);
         let response = await fetchMovie({
             page: currentPage,
             genre: genre === -1 ? undefined : genre,
         });
-        console.log(response);
+        // console.log(response);
         let data = response.data;
         results.push(...data.results);
         currentPage++;
@@ -48,9 +46,9 @@ export default function Gallery() {
                 let data = response.data;
                 setCategory(data.genres);
                 setCurrentCategoryId(-1);
-                setLoading(false);
             } catch (err) {
-                setError(FETCH_ERROR);
+                setLoading(false);
+                setError(ERROR_FAIL_TO_FETCH);
             }
         })();
     }, [])
@@ -64,9 +62,11 @@ export default function Gallery() {
                     1,
                     currentCategoryId === -1 ? undefined : currentCategoryId,
                 );
+                setLoading(false);
                 setMovie(results);
             } catch (err) {
-                setError(FETCH_ERROR);
+                setLoading(false);
+                setError(ERROR_FAIL_TO_FETCH);
             }
         })()
     }, [currentCategoryId]);
@@ -89,7 +89,7 @@ export default function Gallery() {
                                 return prev;
                             })
                         } catch (err) {
-                            setError(FETCH_ERROR);
+                            setError(ERROR_FAIL_TO_FETCH);
                         }
                     })();
                     return prev + 1;
@@ -135,11 +135,12 @@ export default function Gallery() {
                             hoverable
                             variant="borderless"
                             cover={
-                                <img
-                                    draggable={false}
-                                    alt={movie.title}
-                                    src={`${POSTER_BASE_URL}/${movie.poster_path}`}
-                                />
+                                <>
+                                    <Link to={`/details/${movie.id}`}>
+                                        <Image preview={false} alt={movie.title} src={`${POSTER_BASE_URL}/${movie.poster_path}`}>
+                                        </Image>
+                                    </Link>
+                                </>
                             }
                             className={style.item}
                         >

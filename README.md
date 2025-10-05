@@ -60,9 +60,9 @@ Gallery View:
 
 Details View:
   - [ ] Does clicking on an item in List View take you to the Details View?  (10 points)
-  - [ ] Does clicking on an item in Gallery View take you to the Details View?  (10 points)
-  - [ ] Does the Details View contain item details?  (8 points)
-  - [ ] Do the PREVIOUS and NEXT buttons work correctly?  (10 points)
+  - [x] Does clicking on an item in Gallery View take you to the Details View?  (10 points)
+  - [x] Does the Details View contain item details?  (8 points)
+  - [x] Do the PREVIOUS and NEXT buttons work correctly?  (10 points)
 
 Other:
   - [x] Does the implementation use React Router and TypeScript?  (12 points)

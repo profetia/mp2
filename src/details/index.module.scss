@@ -1,0 +1,53 @@
+@import "../variables.scss";
+
+.content {
+    background-color: $background-color;
+
+    :global(.ant-card-head) {
+        padding-top: 20px;
+        border-bottom: 0px;
+
+        button {
+            padding: 20px;
+        }
+    }
+
+    :global(.ant-card-body) {
+        padding-top: 16px;
+    }
+
+    .body {
+        margin: auto 8px;
+
+        :global(h2) {
+            color: #f759ab;
+            margin-top: 0;
+            margin-bottom: -0.75em;
+        }
+
+        :global(h5) {
+            color: #fa8c16;
+        }
+
+        .details {
+            padding: 0 12px;
+
+            .overview {
+                margin-top: 0;
+                max-width: 500px;
+                color: $primary-color;
+            }
+
+            .info {
+                :global(.ant-typography) {
+                    margin-bottom: 8px;
+                    color: #69c0ff;
+                }
+
+                .release {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

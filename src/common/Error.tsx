@@ -15,3 +15,6 @@ export default function Error({ msg }: { msg: string }) {
         </Card >
     )
 }
+
+export const ERROR_FAIL_TO_FETCH = "Fail to fetch from TMDB";
+export const ERROR_NOT_FOUND = "We can't find the page you're looking for";

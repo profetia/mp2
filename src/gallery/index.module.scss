@@ -31,14 +31,14 @@
 
         .item {
             flex: 0 1 calc(16.67% - 1rem);
-        }
 
-        .item :global(.ant-card-body) {
-            padding: 0;
-        }
+            :global(.ant-card-body) {
+                padding: 0;
+            }
 
-        .item :global(img) {
-            border-radius: 6px;
+            :global(img) {
+                border-radius: 6px;
+            }
         }
     }
 }

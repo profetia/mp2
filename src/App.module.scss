@@ -10,15 +10,15 @@
   .nav {
     .item {
       padding: 0 20px;
-    }
 
-    .item :global(h4) {
-      margin-top: 1.5em;
-      margin-bottom: 1em;
-    }
+      :global(h4) {
+        margin-top: 1.5em;
+        margin-bottom: 1em;
+      }
 
-    .item :global(a) {
-      color: $primary-color;
+      :global(a) {
+        color: $primary-color;
+      }
     }
   }
 }

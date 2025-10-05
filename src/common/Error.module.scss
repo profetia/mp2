@@ -11,8 +11,8 @@
             font-size: 36px;
         }
     }
-}
 
-.content :global(h3) {
-    color: $primary-color;
+    :global(h3) {
+        color: $primary-color;
+    }
 }
