@@ -19,7 +19,7 @@ const { Title } = Typography;
 
 function App() {
   return (
-    <Router>
+    <Router basename='/mp2'>
       <Flex gap="middle" align="center" vertical>
         <div className={style.header}>
           <Title>
