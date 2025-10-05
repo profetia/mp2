@@ -65,7 +65,7 @@ Details View:
   - [ ] Do the PREVIOUS and NEXT buttons work correctly?  (10 points)
 
 Other:
-  - [ ] Does the implementation use React Router and TypeScript?  (12 points)
+  - [x] Does the implementation use React Router and TypeScript?  (12 points)
   - [ ] Design (10 points)
 
 ## Tips

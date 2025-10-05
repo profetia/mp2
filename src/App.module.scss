@@ -1,0 +1,26 @@
+@import "./variables";
+
+.header {
+  .logo {
+    background: linear-gradient(90deg, #75d7b8, #39c0ed);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .link {
+    padding: 0 20px;
+  }
+
+  .link :global(h4) {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  .link :global(a) {
+    color: $primary-color;
+  }
+}
+
+.body {
+  min-width: 720px;
+}
