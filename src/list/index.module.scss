@@ -1,0 +1,55 @@
+@import "../variables.scss";
+
+.content {
+    background-color: $background-color;
+
+    .body {
+        padding: 0 12px;
+
+        :global(h4) {
+            color: $primary-color;
+            margin: 0.15em 2px;
+            margin-top: 0.4em;
+        }
+
+        .select {
+            width: 100%;
+        }
+
+        .radio {
+            margin: 1em 2px;
+        }
+    }
+}
+
+.list {
+    margin-top: 12px;
+
+    :global(.ant-card-body) {
+        padding: 16px;
+    }
+
+    .item {
+        margin-top: 4px;
+
+        .poster {
+            min-height: 185px;
+        }
+
+        .info {
+            padding: 0 12px;
+
+            :global(h2) {
+                color: #f759ab;
+                margin-top: 0;
+                margin-bottom: -0.75em;
+                max-width: 500px;
+                word-wrap: break-word;
+            }
+
+            :global(h5) {
+                color: #fa8c16;
+            }
+        }
+    }
+}

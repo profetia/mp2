@@ -6,7 +6,7 @@ import { Card, Flex, Image, Typography } from "antd";
 import Error, { ERROR_FAIL_TO_FETCH } from '../common/Error';
 import Loading from '../common/Loading';
 
-import { fetchMovie, fetchMovieList, POSTER_BASE_URL } from '../common/ApiUtils';
+import { fetchDiscoverMovie, fetchGenresMovieList, POSTER_BASE_URL } from '../common/ApiUtils';
 import { debounce } from '../common/IoUtils';
 
 import style from './index.module.scss';
@@ -17,7 +17,7 @@ async function batchedFetchMovie(page: number, genre?: number, batchSize: number
     let results: any[] = [];
     let currentPage = page * batchSize - (batchSize - 1);
     for (let i = 0; i < batchSize; i++) {
-        let response = await fetchMovie({
+        let response = await fetchDiscoverMovie({
             page: currentPage,
             genre: genre === -1 ? undefined : genre,
         });
@@ -42,7 +42,7 @@ export default function Gallery() {
     useEffect(() => {
         (async () => {
             try {
-                let response = await fetchMovieList();
+                let response = await fetchGenresMovieList();
                 let data = response.data;
                 setCategory(data.genres);
                 setCurrentCategoryId(-1);

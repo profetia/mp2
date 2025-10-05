@@ -37,7 +37,7 @@ function cache(maxAge = 600000) {
 
 class ApiUtils {
     @cache()
-    async fetchMovieList() {
+    async fetchGenresMovieList() {
         return await endpoint.get("/genre/movie/list", {
             params: {
                 language: 'en'
@@ -46,7 +46,7 @@ class ApiUtils {
     }
 
     @cache()
-    async fetchMovie({ page = 1, genre }: { page: number, genre?: number }) {
+    async fetchDiscoverMovie({ page = 1, genre }: { page: number, genre?: number }) {
         return await endpoint.get(
             `/discover/movie`,
             {
@@ -63,18 +63,31 @@ class ApiUtils {
     }
 
     @cache()
-    async fetchDetails({ movie_id }: { movie_id: number }) {
+    async fetchMovieDetails({ movie_id }: { movie_id: number }) {
         return await endpoint.get(`/movie/${movie_id}`, {
             params: {
                 language: "en-US",
             }
         })
     }
+
+    @cache()
+    async fetchSearchMovie({ query, page = 1 }: { query: string, page: number }) {
+        return await endpoint.get("/search/movie", {
+            params: {
+                include_adult: false,
+                language: 'en-US',
+                query,
+                page
+            }
+        })
+    }
 }
 
 const api = new ApiUtils();
-export const fetchMovieList = api.fetchMovieList;
-export const fetchMovie = api.fetchMovie;
-export const fetchDetails = api.fetchDetails;
+export const fetchGenresMovieList = api.fetchGenresMovieList;
+export const fetchDiscoverMovie = api.fetchDiscoverMovie;
+export const fetchMovieDetails = api.fetchMovieDetails;
+export const fetchSearchMovie = api.fetchSearchMovie;
 
 export const POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500/";

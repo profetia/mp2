@@ -7,7 +7,7 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Error, { ERROR_FAIL_TO_FETCH, ERROR_NOT_FOUND } from '../common/Error';
 import Loading from '../common/Loading';
 
-import { fetchDetails, POSTER_BASE_URL } from '../common/ApiUtils';
+import { fetchMovieDetails, POSTER_BASE_URL } from '../common/ApiUtils';
 
 import style from './index.module.scss';
 
@@ -34,10 +34,10 @@ export default function Details() {
             }
 
             try {
-                let response = await fetchDetails({
+                let response = await fetchMovieDetails({
                     movie_id: movieId_,
                 });
-                console.log(response);
+                // console.log(response);
                 let data = response.data;
                 setLoading(false);
                 setMovie(data);
@@ -88,6 +88,7 @@ export default function Details() {
                             src={`${POSTER_BASE_URL}${movie.poster_path}`}
                             alt={movie.title}
                             preview={false}
+                            className={style.poster}
                         />
                         <div className={style.details}>
                             <Title level={5} className={style.overview}>{movie.overview || "N/A"}</Title>

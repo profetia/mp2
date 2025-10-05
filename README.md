@@ -49,24 +49,24 @@ You will also be required to use following tools:
 Total Points : 100
 
 List View:
-  - [ ] Does the list view display relevant items from the chosen API ? (4 points)
-  - [ ] Does the search bar filter down items based on the search? (8 points)
-  - [ ] Can you sort by at least 2 properties?  (8 points)
-  - [ ] Can the properties be sorted in Ascending and Descending order?  (8 points)
+  - [x] Does the list view display relevant items from the chosen API ? (4 points)
+  - [x] Does the search bar filter down items based on the search? (8 points)
+  - [x] Can you sort by at least 2 properties?  (8 points)
+  - [x] Can the properties be sorted in Ascending and Descending order?  (8 points)
 
 Gallery View:
   - [x] Is the gallery composed of item media?  (4 points)
   - [x] Does clicking on a filter change results accordingly?  (8 points)
 
 Details View:
-  - [ ] Does clicking on an item in List View take you to the Details View?  (10 points)
+  - [x] Does clicking on an item in List View take you to the Details View?  (10 points)
   - [x] Does clicking on an item in Gallery View take you to the Details View?  (10 points)
   - [x] Does the Details View contain item details?  (8 points)
   - [x] Do the PREVIOUS and NEXT buttons work correctly?  (10 points)
 
 Other:
   - [x] Does the implementation use React Router and TypeScript?  (12 points)
-  - [ ] Design (10 points)
+  - [x] Design (10 points)
 
 ## Tips
   - Start early! This is first MP that uses React so start ahead.
