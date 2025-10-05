@@ -181,7 +181,7 @@ export default function List() {
                 {
                     movie.map((movie, index, _) => {
                         if (movie.adult) {
-                            return;
+                            return <></>;
                         }
 
                         return (
