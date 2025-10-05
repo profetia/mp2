@@ -1,10 +1,13 @@
 import axios from "axios";
 
+// const token = process.env.REACT_APP_API_KEYl
+const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMWExODA2NWZmNGY2N2EyMDUzOWM0ZDM4ZGUzOTJmMyIsIm5iZiI6MTc1OTYzMzA5My41OTgsInN1YiI6IjY4ZTFkZWM1MjU5Mzk5NmIzODk2MTE1NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hpA0LUKTTbql0p89AvlHEpuCkWrMdkemqM1xk4EAx70";
+
 const endpoint = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     timeout: 1000,
     headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+        'Authorization': `Bearer ${token}`
     }
 });
 

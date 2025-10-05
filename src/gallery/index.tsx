@@ -34,6 +34,7 @@ export default function Gallery() {
     const [error, setError] = useState("");
 
     const [currentCategoryId, setCurrentCategoryId] = useState(-1);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [currentPage, setCurrentPage] = useState(1);
 
     const [category, setCategory] = useState<any[]>([]);
@@ -100,7 +101,7 @@ export default function Gallery() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [currentCategoryId]);
 
     if (loading) {
         return <Loading />

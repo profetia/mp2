@@ -19,7 +19,7 @@ function keyFnToCompareFn<T, U>(keyFn: (arg: T) => U) {
         if (keyX < keyY) {
             return -1;
         }
-        if (keyX == keyY) {
+        if (keyX === keyY) {
             return 0;
         }
         return 1;
@@ -30,7 +30,7 @@ function levelCompareFn<T>(keyFns: ((x: T, y: T) => number)[]) {
     return (x: T, y: T) => {
         for (let fn of keyFns) {
             let ret = fn(x, y);
-            if (ret != 0) {
+            if (ret !== 0) {
                 return ret;
             }
         }
@@ -64,6 +64,7 @@ function applySortOptions(array: any[], sortBy: string, sortOrder: string) {
 export default function List() {
     const [error, setError] = useState<string | null>(null);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [currentPage, setCurrentPage] = useState(1);
     const [currentSortBy, setCurrentSortBy] = useState('title');
     const [currentSortOrder, setCurrentSortOrder] = useState('ascending');
@@ -82,7 +83,7 @@ export default function List() {
                 page: 1,
                 query
             });
-            console.log(response);
+            // console.log(response);
             let data = response.data;
             setMovie(applySortOptions(data.results, currentSortBy, currentSortOrder));
             currentTotalPage = data.total_pages;
@@ -136,7 +137,7 @@ export default function List() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [currentQuery, currentSortBy, currentSortOrder, currentTotalPage]);
 
     if (error) {
         return <Error msg={error} />

@@ -43,7 +43,7 @@ export default function Details() {
                 setMovie(data);
             } catch (err: any) {
                 setLoading(false);
-                if (err.status == 404) {
+                if (err.status === 404) {
                     setError(ERROR_NOT_FOUND);
                     return;
                 }
