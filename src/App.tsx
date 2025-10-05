@@ -9,7 +9,7 @@ import {
 import { Flex, Typography } from "antd";
 
 import Details from './details';
-import Error from "./error"
+import Error from "./common/Error"
 import Gallery from './gallery';
 import List from "./list"
 
@@ -25,15 +25,15 @@ function App() {
           <Title>
             <span className={style.logo}>TMDB Popular Movie Directory</span>
           </Title>
-          <Flex gap="middle" align="center" justify='center'>
-            <div className={style.link}>
+          <Flex gap="middle" align="center" justify='center' className={style.nav}>
+            <div className={style.item}>
               <Title level={4}>
                 <Link to="/">Search</Link>
               </Title>
             </div>
-            <div className={style.link}>
+            <div className={style.item}>
               <Title level={4}>
-                <Link to="/details">Gallery</Link>
+                <Link to="/gallery">Gallery</Link>
               </Title>
             </div>
           </Flex>
@@ -43,7 +43,7 @@ function App() {
             <Route path="/details" element={<Details />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/" element={<List />} />
-            <Route path="*" element={<Error />} />
+            <Route path="*" element={<Error msg="We can't find the page you're looking for" />} />
           </Routes>
         </div>
       </Flex>

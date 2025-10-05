@@ -55,8 +55,8 @@ List View:
   - [ ] Can the properties be sorted in Ascending and Descending order?  (8 points)
 
 Gallery View:
-  - [ ] Is the gallery composed of item media?  (4 points)
-  - [ ] Does clicking on a filter change results accordingly?  (8 points)
+  - [x] Is the gallery composed of item media?  (4 points)
+  - [x] Does clicking on a filter change results accordingly?  (8 points)
 
 Details View:
   - [ ] Does clicking on an item in List View take you to the Details View?  (10 points)

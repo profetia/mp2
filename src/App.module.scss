@@ -7,17 +7,19 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .link {
-    padding: 0 20px;
-  }
+  .nav {
+    .item {
+      padding: 0 20px;
+    }
 
-  .link :global(h4) {
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-  }
+    .item :global(h4) {
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+    }
 
-  .link :global(a) {
-    color: $primary-color;
+    .item :global(a) {
+      color: $primary-color;
+    }
   }
 }
 

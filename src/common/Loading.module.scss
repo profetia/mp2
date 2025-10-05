@@ -1,0 +1,49 @@
+@import "../variables.scss";
+
+.content {
+    background-color: $background-color;
+
+    .text {
+        text-align: center;
+        margin: .5em 0;
+
+
+        .dots::after {
+            content: " . . .";
+            display: inline-block;
+            width: 3ch;
+            letter-spacing: .4ch;
+            animation: dots 1s steps(3, end) infinite;
+        }
+
+        @keyframes dots {
+            0% {
+                content: "  .  ";
+            }
+
+            33% {
+                content: "  .. ";
+            }
+
+            66% {
+                content: "  ...";
+            }
+
+            100% {
+                content: "  .  ";
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ldots::after {
+                animation: none;
+                content: "  ...";
+            }
+        }
+
+    }
+}
+
+.content :global(h3) {
+    color: $primary-color;
+}

@@ -1,0 +1,44 @@
+@import "../variables.scss";
+
+.content {
+    min-width: 700px;
+    max-width: 1200px;
+    padding: 0 120px;
+
+    .category {
+        .item {
+            background-color: $background-color;
+
+            .text :global(strong) {
+                color: $primary-color;
+            }
+
+            &.current {
+                // surround the current category with a border
+                border: 2px solid $primary-color;
+            }
+        }
+
+        .item :hover {
+            cursor: pointer;
+            background-color: lighten($background-color, 2%);
+            border-radius: 8px;
+        }
+    }
+
+    .movie {
+        padding-top: 24px;
+
+        .item {
+            flex: 0 1 calc(16.67% - 1rem);
+        }
+
+        .item :global(.ant-card-body) {
+            padding: 0;
+        }
+
+        .item :global(img) {
+            border-radius: 6px;
+        }
+    }
+}
